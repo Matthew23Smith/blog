@@ -1,0 +1,12 @@
+$navbar-height: 70px;
+$font-family-sans-serif: 'Varela Round', sans-serif;
+$font-size-base: 12px;
+$navbar-default-bg: rgba( 0, 0, 0 ,0);
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar {
+    font-weight: 700;
+}
