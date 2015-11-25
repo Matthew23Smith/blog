@@ -1,0 +1,11 @@
+<div class='container'>
+    <div class='col col-md-6 col-md-offset-4'>
+        <h2>This is <%= "#{@user.username}" %>'s Profile</h2>
+        <%= gravatar_for(@user, size: 250) %>
+        <br>
+        <p><% pluralize(@user.articles.count, "article") %></p>
+        <% @user.articles.each do |article| %>
+            <p><%= link_to article.title, article_path(article) %></p>
+        <% end %>
+    </div>
+</div>

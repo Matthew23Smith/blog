@@ -1,0 +1,23 @@
+<div class='container'>
+	
+	<h1>All User's Using My Blog</h1>
+	
+	<div class="row center">
+		<% @users.each do |user| %>
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		    		<%= link_to gravatar_for(user), user_path(user) %>
+		      <div class="caption">
+		        <h3><%= user.username %></h3>
+		       <p> <small><%= pluralize(user.articles.count, "article") %></small></p>
+		        <br>
+		        <p class='text-center'>
+				<%= link_to 'Show', user_path(user) %></p>
+		      </div>
+		    </div>
+		  </div>
+		<% end %>
+	</div>
+	
+</div>
+
