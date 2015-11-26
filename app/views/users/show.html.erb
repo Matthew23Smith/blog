@@ -4,7 +4,10 @@
         <%= gravatar_for(@user, size: 250) %>
         <br>
         <p><% pluralize(@user.articles.count, "article") %></p>
-        <% @user.articles.each do |article| %>
+        <div class="center">
+		    <%= will_paginate @user_articles %>
+	    </div>
+        <% @user_articles.each do |article| %>
             <p><%= link_to article.title, article_path(article) %></p>
         <% end %>
     </div>

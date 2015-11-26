@@ -1,7 +1,9 @@
 <div class='container'>
 	
 	<h1>All User's Using My Blog</h1>
-	
+	<div class="center">
+		<%= will_paginate %>
+	</div>
 	<div class="row center">
 		<% @users.each do |user| %>
 		  <div class="col-sm-6 col-md-4">
@@ -17,6 +19,10 @@
 		    </div>
 		  </div>
 		<% end %>
+	</div>
+	
+	<div class="center">
+		<%= will_paginate %>
 	</div>
 	
 </div>
