@@ -16,7 +16,7 @@
 		       <p></p> <small><%= article.user.username if article.user %>, Create: <%= time_ago_in_words(article.created_at) %>, Update: <%= time_ago_in_words(article.updated_at) %></small></p>
 		        <br>
 		        <p class='text-center'>
-		        	<% if signed_in? && current_user == article.user %>
+		        	<% if signed_in? && (current_user == article.user || current_user.admin?) %>
 		        		<%= link_to 'Edit', edit_article_path(article) %>
 		        		<%= link_to 'Delete', article_path(article), method: :delete, data:{confirm: "Are you sure?"} %>
 		        	<% end %>
