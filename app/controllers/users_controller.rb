@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	
 	before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_user, only: [:edit]
 	before_action :require_same_user, only: [:edit, :update, :destroy]
 	before_action :require_admin, only: [:destroy]
    
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
  
    private
    
-	def user_params
+  def require_params
 		params.require(:user).permit(:username, :email, :password)
 	end
 	

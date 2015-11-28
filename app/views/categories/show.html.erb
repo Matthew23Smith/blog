@@ -1,19 +1,21 @@
 <div class='container'>
-	
-	<h1>All articles</h1>
-	<%= link_to "New Article", new_article_path %>
-	<div class="center">
-		<%= will_paginate %>
-	</div>
-	<div class="row">
-		<% @articles.each do |article| %>
-		  <div class="col-sm-6 col-md-4">
+  <h1 align="center"><%= "Category: " + @category.name %></h1>
+  <div class='row'>
+    <div class='center'>
+      <%= link_to "Edit #{@category.name}", edit_category_path(@category) %>
+    </div>
+  </div>
+  <div align="center">
+    <%= will_paginate @category_articles %>
+  </div>
+  <% @category_articles.each do |article| %>
+    <div class="col-sm-6 col-md-4">
 		    <div class="thumbnail">
 		    		<%= image_tag("default.png", :alt => "default") %>
 		      <div class="caption">
 		        <h3><%= article.title %></h3>
 		       <%=  truncate(article.description, length: 70)  %>
-		       <p></p> <small><%= article.user.username if article.user %>, Create: <%= time_ago_in_words(article.created_at) %>, Update: <%= time_ago_in_words(article.updated_at) %></small></p>
+		       <p></p> <small><%= article.user.username if article.user %>, Create: <%= time_ago_in_words(article.created_at) %>, Update: <%= time_ago_in_words(article.updated_at) %></small>
 		        <br>
             <p><small><% if article.categories.any? %>
                         <p>Categories: <%= render article.categories %></p>
@@ -27,13 +29,13 @@
 								</p>
 		      </div>
 		    </div>
-		  </div>
-		<% end %>
-	</div>
-	
-	<div class="center">
-		<%= will_paginate %>
-	</div>
-	
-</div>
+  </div>
+  
+  <% end %>
+  <div align="center">
+    <%= will_paginate @category_articles %>
+  </div>
+
+
+
 
